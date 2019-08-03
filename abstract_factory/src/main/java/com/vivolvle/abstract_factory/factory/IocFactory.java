@@ -19,7 +19,7 @@ public class IocFactory {
     
     @Autowired
     private IocFactory(List<AbstractService> list){
-        serviceMap = list.stream().collect(Collectors.toMap(v->v.getType(),v->v));
+        serviceMap = list.stream().collect(Collectors.toMap(AbstractService::getType,v->v));
     }
 
     public AbstractService getServiceByType(Integer type){
